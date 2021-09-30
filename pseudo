@@ -1,1 +1,29 @@
+#!/usr/bin/python
 
+x = 0.0
+z = 0.0
+flag_x = 500.0
+flag_z = 500.0
+print("Welcome to Frank's Secretstore")
+print("You are at level 0,0")
+print("Key is at level 500,500")
+print("Kindly provide your next position in x,y format")
+for j in range(100):
+    print("Current position: {x},{z}")
+    try:
+        coords = input("Enter next position:")
+        now_x = float(coords[0])
+        now_z = float(coords[1])
+    except Exception:
+        continue
+    diff_x = now_x - x
+    diff_z = now_z - z
+    dist = math.sqrt(diff_x ** 2 + diff_z ** 2)
+    if dist > 10:
+        print("Maximum distance cannot be more than 10.")
+    else:
+        x = now_x
+        z = now_z
+    if x == 500 and z == 500:
+        print("flag{#####################}")
+        break
